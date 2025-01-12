@@ -1,0 +1,23 @@
+<!-- views/confirmation.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="confirmation-card">
+            <h1>Booking Confirmed!</h1>
+            <div class="confirmation-details">
+                <p>Booking ID: <%= booking.id %></p>
+                <p>Name: <%= booking.name %></p>
+                <p>Email: <%= booking.email %></p>
+                <p>Check-in: <%= booking.checkIn %></p>
+                <p>Check-out: <%= booking.checkOut %></p>
+            </div>
+            <a href="/" class="btn">Return to Home</a>
+        </div>
+    </div>
+</body>
+</html>

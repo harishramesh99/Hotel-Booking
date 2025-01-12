@@ -1,0 +1,66 @@
+<!-- views/admin.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Room Management</h1>
+        
+        <!-- Add Room Form -->
+        <div class="admin-form">
+            <h2>Add New Room</h2>
+            <form action="/admin/add-room" method="POST">
+                <div class="form-group">
+                    <label>Room Number:</label>
+                    <input type="text" name="number" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Room Type:</label>
+                    <select name="type" required>
+                        <option value="Deluxe">Deluxe</option>
+                        <option value="Suite">Suite</option>
+                        <option value="Family">Family</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Price per Night:</label>
+                    <input type="number" name="price" required>
+                </div>
+
+                <button type="submit" class="btn">Add Room</button>
+            </form>
+        </div>
+
+        <!-- Room List -->
+        <div class="room-list">
+            <h2>Current Rooms</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Room Number</th>
+                        <th>Type</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% rooms.forEach(room => { %>
+                        <tr>
+                            <td><%= room.number %></td>
+                            <td><%= room.type %></td>
+                            <td>$<%= room.price %></td>
+                            <td><%= room.isAvailable ? 'Available' : 'Booked' %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+        <a href="/" class="back-link">Back to Home</a>
+    </div>
+</body>
+</html>

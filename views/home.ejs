@@ -1,0 +1,28 @@
+<!-- views/home.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel Rooms</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Available Rooms</h1>
+        <div class="room-grid">
+            <% rooms.forEach(room => { %>
+                <div class="room-card">
+                    <h2>Room <%= room.number %></h2>
+                    <p>Type: <%= room.type %></p>
+                    <p>Price: $<%= room.price %>/night</p>
+                    <% if(room.isAvailable) { %>
+                        <a href="/book/<%= room.id %>" class="btn">Book Now</a>
+                    <% } else { %>
+                        <span class="unavailable">Not Available</span>
+                    <% } %>
+                </div>
+            <% }); %>
+        </div>
+        <a href="/admin" class="admin-link">Admin Panel</a>
+    </div>
+</body>
+</html>
