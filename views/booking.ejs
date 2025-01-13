@@ -7,6 +7,7 @@
 </head>
 <body>
     <div class="container">
+        <a href="/" class="back-link">Back to Rooms</a>
         <h1>Book Room <%= room.number %></h1>
         <form action="/confirm" method="POST" class="booking-form">
             <input type="hidden" name="roomId" value="<%= room.id %>">
@@ -33,7 +34,7 @@
 
             <button type="submit" class="btn">Confirm Booking</button>
         </form>
-        <a href="/" class="back-link">Back to Rooms</a>
+        
     </div>
 </body>
 </html>
